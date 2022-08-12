@@ -1,0 +1,110 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <mat-card>
+        <mat-card-title class="container-title">
+            <h2>Consulta de Indicadores</h2>
+        </mat-card-title>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-card>
+                        <h4 class="text-primary text-center">Mes/Año con mayor cantidad de clientes nacidos</h4>
+                    </mat-card>
+                    <div class="table-responsive">
+                        <table mat-table [dataSource]="dataRowsBirthMajorInYearMonth">
+                            <ng-container matColumnDef="indYear">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="150"> Año </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indYear}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="indMonth">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="200"> Mes </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indMonth}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="indCant">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="300"> Cantidad </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indCant}} </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <mat-card>
+                        <h4 class="text-primary text-center">Mes/Año con menor cantidad de clientes nacidos</h4>
+                    </mat-card>
+                    <div class="table-responsive">
+                        <table mat-table [dataSource]="dataRowsBirthMinorInYearMonth">
+                            <ng-container matColumnDef="indYear">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="150"> Año </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indYear}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="indMonth">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="200"> Mes </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indMonth}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="indCant">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="300"> Cantidad </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indCant}} </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-card>
+                        <h4 class="text-primary text-center">Cantidad de clientes nacidos por mes/año</h4>
+                    </mat-card>
+                    <div class="table-responsive">
+                        <table mat-table [dataSource]="dataRowsBirthByYearMonth">
+                            <ng-container matColumnDef="indYear">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="150"> Año </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indYear}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="indMonth">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="200"> Mes </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indMonth}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="indCant">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="300"> Cantidad </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indCant}} </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                </div>                
+                <div class="col-md-6">
+                    <mat-card>
+                        <h4 class="text-primary text-center">Taza de Natalidad de cada mes</h4>
+                    </mat-card>
+                    <div class="table-responsive">
+                        <table mat-table [dataSource]="dataRowsBirthRateByYearMonth">
+                            <ng-container matColumnDef="indYear">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="150"> Año </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indYear}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="indMonth">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="200"> Mes </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indMonth}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="indCant">
+                                <th mat-header-cell *matHeaderCellDef class="text-center" [width]="300"> Cantidad </th>
+                                <td mat-cell *matCellDef="let row" class="text-center"> {{row.indCant}} </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

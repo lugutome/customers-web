@@ -1,0 +1,103 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <mat-card>
+        <mat-card-title class="container-title">
+            <h2>Consulta de Clientes</h2>
+        </mat-card-title>
+        <mat-card-content>
+            <mat-card>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group row">
+                                    <label for="codCliente" class="col-lg-4 col-form-label">Dni:</label>
+                                    <div class="col-lg-8">
+                                        <input type="text" [(ngModel)]="txtDni" (keyup.enter)="searchCustomer();" class="form-control input-sm"
+                                            maxlength="50" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group row">
+                                    <label for="codCliente" class="col-lg-4 col-form-label">Email:</label>
+                                    <div class="col-lg-8">
+                                        <input type="text" [(ngModel)]="txtEmail" (keyup.enter)="searchCustomer();" class="form-control input-sm"
+                                            maxlength="50" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary btn-sm" (click)="searchCustomer();">
+                                    <i class="fa fa-search"></i> Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <button class="btn btn-success btn-sm" (click)="newCustomer();">
+                            <i class="fa fa-sticky-note-o"></i> Nuevo
+                        </button>
+                    </div>
+                </div>
+            </mat-card>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ng-container *ngIf="activeLoadTable; else templateTable">
+                        <div *ngIf="activeLoadTable" class="col-md-12 text-center">
+                            <span class="spinner-border text-default sizing-loading-normal" role="status"></span>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+
+            <ng-template #templateTable>
+                <div class="table-responsive">
+                    <table mat-table [dataSource]="dataRows">
+
+                        <ng-container matColumnDef="dni">
+                            <th mat-header-cell *matHeaderCellDef class="text-center" [width]="150"> DNI </th>
+                            <td mat-cell *matCellDef="let row" class="text-left"> {{row.dni}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef class="text-center" [width]="400"> Nombre </th>
+                            <td mat-cell *matCellDef="let row" class="text-left"> {{row.name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="lastName">
+                            <th mat-header-cell *matHeaderCellDef class="text-center" [width]="400"> Apellido </th>
+                            <td mat-cell *matCellDef="let row" class="text-left"> {{row.lastName}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="email">
+                            <th mat-header-cell *matHeaderCellDef class="text-center" [width]="400"> Email </th>
+                            <td mat-cell *matCellDef="let row" class="text-left"> {{row.email}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="birthDate">
+                            <th mat-header-cell *matHeaderCellDef class="text-center" [width]="200"> Fecha Nacimiento
+                            </th>
+                            <td mat-cell *matCellDef="let row" class="text-left"> {{row.birthDate}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="createDate">
+                            <th mat-header-cell *matHeaderCellDef class="text-center" [width]="200"> Fecha Creación
+                            </th>
+                            <td mat-cell *matCellDef="let row" class="text-left"> {{row.createDate}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    </table>
+
+                    <mat-paginator class="border-paginator-table" #paginatorDataRows
+                        [hidden]="dataRows && dataRows.data && dataRows.data.length === 0" [pageSize]="10"
+                        [pageSizeOptions]="[5, 10, 25, 100]">
+                    </mat-paginator>
+                </div>
+            </ng-template>
+        </mat-card-content>
+    </mat-card>
+</div>

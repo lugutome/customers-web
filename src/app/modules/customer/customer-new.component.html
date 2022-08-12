@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Nuevo Cliente</h1>
+<hr>
+<div mat-dialog-content>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Dni:</label>
+                <div class="col-md-9">
+                    <input type="text" [(ngModel)]="data.dni" class="form-control input-sm" maxlength="8" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Nombre:</label>
+                <div class="col-md-9">
+                    <input type="text" [(ngModel)]="data.name" class="form-control input-sm" maxlength="50" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Apellido:</label>
+                <div class="col-md-9">
+                    <input type="text" [(ngModel)]="data.lastName" class="form-control input-sm" maxlength="50" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Email:</label>
+                <div class="col-md-9">
+                    <input type="text" [(ngModel)]="data.email" class="form-control input-sm" maxlength="50" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">F.Nacimiento:</label>
+                <div class="col-md-9">
+                    <input type="text" [(ngModel)]="data.birthDate" class="form-control input-sm" maxlength="10" placeholder="DD/MM/YYYY"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div mat-dialog-actions>
+  <button class="btn btn-success btn-sm" (click)="save();">Guardar</button>
+  &nbsp; &nbsp;
+  <button class="btn btn-warning btn-sm" (click)="cancel();">Cancelar</button>
+</div>
